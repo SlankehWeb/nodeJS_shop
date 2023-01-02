@@ -1,4 +1,4 @@
-import ProductModel from '../Models/product.model.js'
+import ProductModel from '../models/product.model.js'
 
 class ProductController {
 
@@ -53,6 +53,33 @@ class ProductController {
 			res.sendStatus(418)
 		}
 	}
+	update = async (req, res) => {
+		const { id } = req.params || 0
+		const { title, img, description, price, catagori, rating, stock, org_id } = req.body;
+
+		if(id && title && img && description && price && catagori && rating && stock && org_id) {	
+			const model = await UserModel.update(req.body, {
+				where: { id: id },
+				individualHooks: true
+			})
+
+			res.json({ 
+				msg: 'Record update' 
+			})
+		} else {
+			res.sendStatus(418)
+		}	
+	}
+			/**
+	 * Method delete - delete based on id (url param)
+	 * @param {Object} req Express Request Object
+	 * @param {Object} res Express Response Object
+	 */
+			delete = (req, res) => {
+				res.send('delete product')
+				console.log(req.params.id);
+		
+			}
 }
 
 export default ProductController
