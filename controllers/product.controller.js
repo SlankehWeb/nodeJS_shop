@@ -64,7 +64,7 @@ class ProductController {
 			})
 
 			res.json({ 
-				msg: 'Record update' 
+				msg: 'product update' 
 			})
 		} else {
 			res.sendStatus(418)
