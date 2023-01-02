@@ -1,7 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv';
-import InitRouter from './Routes/init.router.js'
-import UserRouter from './Routes/user.router.js'
+import InitRouter from './routes/init.router.js'
+import UserRouter from './routes/user.router.js'
+import ProductRouter from './routes/product.router.js'
 import { router as AuthRouter } from './Routes/auth.router.js'
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use(InitRouter)
 app.use(UserRouter)
+app.use(ProductRouter)
 app.use(AuthRouter);
 
 
